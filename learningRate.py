@@ -2,7 +2,9 @@ from datasetPreparation import *
 from model import *
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau
 
+#opreste antrenamentul cand rata de validare nu se imbunatateste
 earlystop = EarlyStopping(patience = 10)
+#reduce rata de invatare daca modelul nu se imbunatateste
 learning_rate_reduction = ReduceLROnPlateau(monitor = 'val_acc',patience = 2,verbose = 1,factor = 0.5,min_lr = 0.00001)
 callbacks = [earlystop,learning_rate_reduction]
 
